@@ -1,6 +1,8 @@
-import { LoginForm } from "../components/AuthForm";
+import { SignUpForm } from "../components/AuthForm";
 import React from "react";
-export const LoginPage: React.FC<{ background: string }> = ({ background }) => {
+export const SignupPage: React.FC<{ background: string }> = ({
+  background,
+}) => {
   return (
     <div className="flex w-full h-full justify-center items-center">
       {background && (
@@ -9,7 +11,7 @@ export const LoginPage: React.FC<{ background: string }> = ({ background }) => {
           className="w-full h-full absolute top-0 left-0 z-[-1]"
         />
       )}
-      <LoginForm></LoginForm>
+      <SignUpForm></SignUpForm>
     </div>
   );
 };

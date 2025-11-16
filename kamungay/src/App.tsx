@@ -1,10 +1,11 @@
 import "./App.css";
 import { LoginPage } from "./pages/Login";
 import { SignupPage } from "./pages/Signup";
-
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Dashboard } from "./pages/Dashboard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getRandomBackgroungImage } from "./services/random_background";
 import { useState, useEffect } from "react";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 function App() {
   const [background, setBackground] = useState<string | null>(null);
 
@@ -27,12 +28,19 @@ function App() {
               path="/signup"
               element={<SignupPage background={background} />}
             />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard background={background} />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </Router>
       ) : (
         <div>Loading</div>
       )}
-      );
     </>
   );
 }

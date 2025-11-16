@@ -23,4 +23,5 @@ backend/serviceAccount.json
 *.sln
 *.sw?
 
+*/.env
 
